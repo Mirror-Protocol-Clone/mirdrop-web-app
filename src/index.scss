@@ -1,0 +1,19 @@
+@import "mixins";
+@import "variables";
+@import "reboot";
+
+#root {
+  @include mobile {
+    font-size: $font-size-mobile;
+    margin: 60px auto;
+  }
+
+  @include desktop {
+    font-size: $font-size-desktop;
+    margin: 180px auto;
+  }
+
+  padding: 0 20px;
+  max-width: $max-width;
+  min-height: 100vh;
+}

@@ -1,0 +1,21 @@
+@import "variables";
+
+.alert {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.text {
+  color: $blue;
+}
+
+.red {
+  background: rgba(#f15e7e, 0.15);
+}
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+}

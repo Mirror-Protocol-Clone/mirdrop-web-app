@@ -1,0 +1,32 @@
+@import "mixins";
+
+.button {
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  height: 56px;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  @include desktop {
+    width: 360px;
+  }
+
+  &:not(.outline) {
+    background: $blue;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.outline {
+  border: 1px solid $blue;
+  color: $blue;
+  font-size: 12px;
+  width: 80px;
+  height: 32px;
+}
