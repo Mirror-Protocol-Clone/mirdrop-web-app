@@ -1,6 +1,7 @@
 import { FC, ReactNode, useState } from "react"
 import { CreateTxOptions } from "@terra-money/terra.js"
 import { useWallet } from "@terra-money/wallet-provider"
+import { useGasPrice } from "../hooks/useGasPrices"
 import Broadcasting from "./Broadcasting"
 
 interface Props {
@@ -11,12 +12,12 @@ interface Props {
 const Post: FC<Props> = ({ txOptions, renderSubmit, children }) => {
   const [txhash, setTxhash] = useState("")
   const [error, setError] = useState<Error>()
-
   const { post } = useWallet()
+  const gasPrice = useGasPrice("uusd")
 
   const submit = async () => {
     try {
-      const { result } = await post(txOptions)
+      const { result } = await post({ ...txOptions, gasPrices: gasPrice })
       setTxhash(result.txhash)
     } catch (error) {
       setError(error as Error)
